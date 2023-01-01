@@ -13,45 +13,76 @@ for (int rows = 0; rows < matrix.GetLength(0); rows ++)
 }
 
 }
-int[,]matrix = new int[3,2];
-Printarray(matrix);
 
-// void FillArray (int[,]matrix)
-// {
-//     for (int i  = 0; i< matrix.GetLength(0); i++)
-//     {
-//         for (int j  = 0; j< matrix.GetLength(1); j++)
+
+void FillArray (int[,]matrix)
+{
+    for (int i  = 0; i< matrix.GetLength(0); i++)
+    {
+        for (int j  = 0; j< matrix.GetLength(1); j++)
        
-//         {
-//            matrix[i,j] = new Random().Next(1,10); 
-//         }
-//     }
-// }
+        {
+           matrix[i,j] = new Random().Next(1,10); 
+        }
+    }
+}
+
+// int row = new Random().Next(1,10);
+// int column = new Random().Next(1,10);
+// int[,]matrix = new int[row, column];
+// Printarray(matrix);
+// FillArray(matrix);
+
            
 // // метод создания одномерного  массива
 
+int[]Createarray(int count)
+{
+   return new int [count];
+}
+// печать одномерного массива
 
-
+  string Print(int[]array)
+{
+    return String.Join(' ', array);
+} 
 
 
 // // метод выделеня строки из массива
 
+//int rows = new Random().Next(1,10);
+//int column = new Random().Next(1,10);
+int rows = 2;
+int column = 3;
+int[,]matrix = new int[rows, column];
+FillArray(matrix);
+Printarray(matrix);
+int [] str = new int[column];
 
-//   int[]Stringoutarray(int[,]array);
-// {
+Createarray(column);
+string array_text = Print(str);
+Console.WriteLine(array_text);
+//метод заполнения строки значениями из массива
 
-//     int [] string = new int[array.GetLength(1)];
-//     int rows = new Random().Next(1,10);
-//     int column = new Random().Next(1,10);
-
-
-// for (int i = 0; i<= array.Getlength(0); i++)
-// {
-// for (int j = 0; j<=array.getlength(1); j++)
-// string[i]=array[i,j];
+ int[] Stringoutarray (int[,]matrix)
+ {
 
 
-// }
-// return array;
+for (int i = 0; i<= rows; i++)
+{
+for (int j = 0; j<=column; j++)
+{
+   for (int k = 0; k<=column; k++)
+{
+str[k]=matrix[i,j];
+}
 
-// }
+}
+
+ }
+ return str;
+ }
+
+Stringoutarray(matrix);
+Console.WriteLine(str);
+ 
