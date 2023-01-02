@@ -14,7 +14,7 @@ for (int rows = 0; rows < matrix.GetLength(0); rows ++)
 
 }
 
-
+// метод заполнения двумерного массива
 void FillArray (int[,]matrix)
 {
     for (int i  = 0; i< matrix.GetLength(0); i++)
@@ -34,7 +34,7 @@ void FillArray (int[,]matrix)
 // FillArray(matrix);
 
            
-// // метод создания одномерного  массива
+ // метод создания одномерного  массива
 
 int[]Createarray(int count)
 {
@@ -47,42 +47,87 @@ int[]Createarray(int count)
     return String.Join(' ', array);
 } 
 
+// метод выделеня строки из массива
+int[] Stringoutarray (int[,]matrix, int str_number, int[]str, int column)
+{
 
-// // метод выделеня строки из массива
+for (int j = 0; j <= column-1; j++)
+{
+ str[j]=matrix[str_number,j];  
+}
+ return str;
+}
 
-//int rows = new Random().Next(1,10);
-//int column = new Random().Next(1,10);
-int rows = 2;
-int column = 3;
+// метод помещения строки в массив
+int[,] Strinmatrix (int[]str, int str_number, int[,]matrix)
+{
+
+   int count = str.Length;
+for ( int j = 0; j <= count-1; j++)
+{
+   // int[] test = {1,2,3};
+   matrix[str_number,j] = str[j];
+   // matrix[str_number,j] = test[j];
+  
+}
+return matrix;
+}
+// Метод, который упорядочивает строку
+void Selectionsort(int[]str)
+
+{
+   for (int i = 0; i <=str.Length - 1; i++)
+
+   {
+      int minposition = i;
+      for (int a = i+1; a < str.Length; a ++)
+      {
+        if (str[a] < str [minposition]) 
+        {
+         minposition = a;
+        }
+      }
+      int temperary = str[i];
+      str[i] = str[minposition];
+      str[minposition] = temperary;
+   }
+}
+
+int rows = new Random().Next(1,10);
+int column = new Random().Next(1,10);
+
+// int rows = 3;
+// int column = 3;
 int[,]matrix = new int[rows, column];
+int[,]matrix_2 = new int[rows, column];
+
 FillArray(matrix);
 Printarray(matrix);
+//Printarray(matrix_2);
+
 int [] str = new int[column];
 
 Createarray(column);
-string array_text = Print(str);
+
+// string array_text = Print(str);
+// Console.WriteLine(array_text);
+
+//int str_number = 1;
+
+for (int str_number = 0; str_number<=matrix.GetLength(1)-1; str_number++ )
+{
+int[]string_current = Stringoutarray(matrix,str_number,str,column);
+Selectionsort(string_current);
+
+string array_text = Print(string_current);
 Console.WriteLine(array_text);
-//метод заполнения строки значениями из массива
 
- int[] Stringoutarray (int[,]matrix)
- {
-
-
-for (int i = 0; i<= rows; i++)
-{
-for (int j = 0; j<=column; j++)
-{
-   for (int k = 0; k<=column; k++)
-{
-str[k]=matrix[i,j];
-}
+// matrix_2 = Strinmatrix(string_current, str_number, matrix);
 
 }
 
- }
- return str;
- }
+// Printarray(matrix_2);
 
-Stringoutarray(matrix);
-Console.WriteLine(str);
+
+
  
