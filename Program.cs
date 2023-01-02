@@ -130,4 +130,37 @@ Console.WriteLine(array_text);
 
 
 
- 
+// See https://aka.ms/new-console-template for more information
+//Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+//1Создать и заполнить массив
+//  выделение строки из массива
+// подсчет суммы элементов строки
+// вложить результат в новый одномерный массив
+// подсчет суммы элементов во всех строках
+// вложить все результаты в одномерный массив
+// Сравнить элементы нового одномерного массива
+// Вывести адрес наименьшего элемента
+ // подсчет суммы элементов строки
+int Summaofstrelement(int[]str, int str_number)
+{
+    count = 0;
+    int column = 0;
+    for (int i = 0; i<column; i++)
+    {
+        count = count+str[i];
+    }
+    return count
+    Console.WriteLine(count);
+}
+// Вложить сумму в одномерный массив
+
+    int[]Arrayelementsum(int[]array, int count)
+    {
+
+    for(int i = 0; i < array.Length; i++)
+    {
+       array[i] = count
+    }
+    return array
+}
