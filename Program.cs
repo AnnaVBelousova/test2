@@ -124,11 +124,6 @@ Console.WriteLine(array_text);
 
 // matrix_2 = Strinmatrix(string_current, str_number, matrix);
 
-}
-
-// Printarray(matrix_2);
-
-
 
 // See https://aka.ms/new-console-template for more information
 //Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
@@ -141,26 +136,128 @@ Console.WriteLine(array_text);
 // вложить все результаты в одномерный массив
 // Сравнить элементы нового одномерного массива
 // Вывести адрес наименьшего элемента
- // подсчет суммы элементов строки
-int Summaofstrelement(int[]str, int str_number)
+
+// метод создания двумерного  массива
+ 
+ 
+void PrintArray(double[,]matrix)
 {
-    count = 0;
-    int column = 0;
-    for (int i = 0; i<column; i++)
-    {
-        count = count+str[i];
-    }
-    return count
-    Console.WriteLine(count);
-}
-// Вложить сумму в одномерный массив
 
-    int[]Arrayelementsum(int[]array, int count)
+for (int rows = 0; rows < matrix.GetLength(0); rows ++)
+{
+    for (int column = 0; column < matrix.GetLength(1); column ++)
     {
-
-    for(int i = 0; i < array.Length; i++)
-    {
-       array[i] = count
+       Console.Write($" {matrix[rows, column]}");
     }
-    return array
+    Console.WriteLine();
 }
+}
+
+
+    void FillArray (double[,]matrix)
+{
+    for (int i  = 0; i< matrix.GetLength(0); i++)
+    {
+       for (int j  = 0; j< matrix.GetLength(1); j++)
+        {
+           matrix[i,j] = new Random().Next(1,10); 
+        }
+    }
+
+}
+
+// Заполнение одномерного массива
+ void Fill_1d(double[]array)
+{
+    int length = array.Length;
+    int index = 0;
+    while (index < length)
+    {
+       // Next() - заполнение случайными неотрицательными числами
+        array[index] = 0;
+        
+        index ++; 
+    }
+} 
+// печать 1мерного массива
+string Print1(double[]array)
+{
+    return String.Join(' ', array);
+}
+
+double[] Summaofstrings(double[,]matrix)
+{
+    double[] array = new double [matrix.GetLength(1)-1];
+
+     
+    Fill_1d(array);
+
+    // string array_text = Print1(array);
+    // Console.WriteLine(array_text);
+
+    
+    
+    for (int i  = 0; i< matrix.GetLength(0); i++)
+    {
+       for (int j  = 0; j< matrix.GetLength(1); j++)
+      
+       
+        { 
+           
+            array[i] = array[i]+matrix[i,j];
+
+        }
+
+   }
+
+
+
+    string array_text = Print1(array);
+    Console.WriteLine(array_text);
+return array;
+}
+
+// Метод, который упорядочивает строку
+int Selectionsort(double[]str)
+
+{
+    //int a=0;
+   for (int i = 0; i <=str.Length - 1; i++)
+
+ {
+ int minposition = i;
+for ( i+1; i+1 < str.Length; i+1 ++)
+     {
+        if (str[i+1] < str [minposition]) 
+        {
+          minposition = i+1;
+       }
+     }
+//       int temperary = str[i];
+//       str[i] = str[minposition];
+//       str[minposition] = temperary;
+    }
+   Console.WriteLine(i+1);
+    return i+1;
+}
+
+// int row  = new Random().Next(1,10); 
+// int col  = new Random().Next(1,10); 
+int row = 3;
+int col = 4;
+
+double[,]matrix = new double [row, col];
+
+FillArray(matrix);
+PrintArray(matrix);
+Summaofstrings(matrix);
+double[]array = Summaofstrings(matrix);
+
+Selectionsort(array);
+
+}
+
+// Printarray(matrix_2);
+
+
+
